@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::group([
-    'middleware'=>['auth','isAdmin'],
-    'prefix'=>'admin'
-    ], function ()
-{
-    Route::get('test',function(){
-        return "istifadeci basligi admin olmalidir";
-    });
+Route::group(['middleware'=>['auth','isAdmin'],'prefix'=>'admin'], function (){
+    Route::resource('quizzes', QuizController::class);
 });
