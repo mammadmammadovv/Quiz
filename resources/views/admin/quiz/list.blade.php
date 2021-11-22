@@ -22,8 +22,8 @@
                         <td>{{$item->title}}</td>
                         <td>{{$item->status}}</td>
                         <td>{{$item->finished_date}}</td>
-                        <td><a class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i> Dəyiş</a>
-                            <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i> Sil</a>
+                        <td><a class="btn btn-sm btn-primary" href="{{route('quizzes.edit',$item->id)}}"><i class="fa fa-edit"></i> Dəyiş</a>
+                            <a class="btn btn-sm btn-danger" href="{{route('quizzes.destroy', $item->id)}}"><i class="fa fa-trash"></i> Sil</a>
                         </td>
                       </tr>
                     @endforeach
