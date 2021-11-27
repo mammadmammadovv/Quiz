@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">Sual əlavə et</x-slot>
+    <x-slot name="header">Quiz əlavə et</x-slot>
     
     
     <form method="POST" action="{{route('quizzes.store')}}">
