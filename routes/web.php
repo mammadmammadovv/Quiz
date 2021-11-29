@@ -22,7 +22,9 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth'], function () {
     Route::get('dashboard', [MainController::class , 'dashboard'])->name('dashboard');
-    Route::get('quiz/{slug}', [MainController::class , 'quiz_detail'])->name('quiz_detail');
+    Route::get('quiz/detail/{slug}', [MainController::class , 'quiz_detail'])->name('quiz_detail');
+    Route::get('quiz/{slug}', [MainController::class,'quiz'])->name('quiz.join');
+    Route::post('quiz/{slug}/result', [MainController::class,'result'])->name('quiz.result');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

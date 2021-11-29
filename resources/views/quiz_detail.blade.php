@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     {{ $quiz->description }}</p>
-                    <a href="#" class="btn btn-primary btn-block">Quiz'ə başla</a>
+                    <a href="{{route('quiz.join',$quiz->slug)}}" class="btn btn-primary btn-block">Quiz'ə başla</a>
                 </div>
                 <div class="col-lg-4">
                     <ul class="list-group">
