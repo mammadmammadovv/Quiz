@@ -4,7 +4,8 @@
     </x-slot>
     <div class="card">
         <div class="card-body">
-            <div class="card-title">
+            <div class="card-title d-flex justify-content-between">
+                <a href="{{route('quizzes.index')}}" class="btn btn-secondary"><i class="fas fa-undo"></i> Geri</a>
                 <a href="{{route('questions.create',$quiz->id)}}" class="btn btn-success"><i class="fa fa-plus"></i> Sual əlavə et</a>
             </div>
             <table class="table table-bordered">
