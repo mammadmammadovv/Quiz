@@ -12,7 +12,7 @@
                     {{ $quiz->description }}</p>
                     @if ($quiz->myResult)
                         <a href="{{ route('quiz.join', $quiz->slug) }}" class="btn btn-warning btn-block">Quiz'ə bax</a>
-                    @else
+                    @elseif($quiz->finished_date > now() || $quiz->finished_date == null)
                         <a href="{{ route('quiz.join', $quiz->slug) }}" class="btn btn-primary btn-block">Quiz'ə başla</a>
                     @endif
                 </div>
