@@ -10,4 +10,13 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = ['question','answer1','answer2','answer3','answer4','correct_answer','image'];
+
+
+    public function myAnswer()
+    {
+        return $this->hasOne('App\Models\Answer')->where('user_id',auth()->user()->id);
+    }
 }
+
+
+
