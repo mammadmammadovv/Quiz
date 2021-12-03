@@ -48,7 +48,13 @@
                         <td>
                         @switch($item->status)
                             @case('publish')
-                                <span class="badge bg-success">Aktiv</span>
+                            @if (!$item->finished_date)
+                            <span class="badge bg-success">Aktiv</span>
+                            @elseif($item->finished_date > now())
+                            <span class="badge bg-success">Aktiv</span>
+                            @else
+                            <span class="badge bg-secondary text-white">Vaxtı bitib</span>
+                            @endif
                             @break
                             @case('passive')
                                 <span class="badge bg-danger">Passiv</span>
@@ -63,6 +69,7 @@
                           <span title="{{$item->finished_date}}">{{$item->finished_date ? $item->finished_date->diffForHumans() : "-"}}</span>
                         </td>
                         <td class="text-center">
+                          <a class="btn btn-sm btn-secondary" href="{{route('quizzes.details',$item->id)}}"><i class="fa fa-info-circle"></i> İnfo</a>
                           <a class="btn btn-sm btn-warning" href="{{route('questions.index',$item->id)}}"><i class="fa fa-question"></i> Suallar</a>
                           <a class="btn btn-sm btn-primary" href="{{route('quizzes.edit',$item->id)}}"><i class="fa fa-edit"></i> Dəyiş</a>
                           <a class="btn btn-sm btn-danger" href="{{route('quizzes.destroy', $item->id)}}"><i class="fa fa-trash"></i> Sil</a>
